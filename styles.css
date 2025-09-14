@@ -49,12 +49,11 @@ html,body {
     /* Text inside the panel must have class "img-text" */
     .img-text {
       position: absolute;
-      bottom: 20px;
-      left: 20px;
+	  bottom:3px;
+      left: 5px;
       margin: 0;
       color: #fff;
-      font-size: 1.2rem; /* medium font size */
-      font-weight: 600;
+      font-size: 1rem; /* medium font size */
       text-shadow: 0 3px 8px rgba(0,0,0,0.7);
       opacity: 0;
       transition: opacity 0.4s ease;
