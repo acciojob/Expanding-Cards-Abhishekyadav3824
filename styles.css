@@ -1,77 +1,74 @@
-html,body {
-      height: 100%;
-      margin: 0;
-      font-family: Arial, sans-serif;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-    body {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-    /* Container required by the challenge */
-    .container {
-      width: 90%;
-      max-width: 1200px;
-      height: 72vh;
-      display: flex;
-      gap: 12px;
-      padding: 12px;
-      box-sizing: border-box;
-    }
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #111;
+}
 
-    /* Each card must have class "panel" */
-    .panel {
-      flex: 1;
-      border-radius: 18px;
-      background-size: cover;
-      background-position: center;
-      position: relative;
-      cursor: pointer;
-      overflow: hidden;
-      transition: flex 0.7s cubic-bezier(.2,.8,.2,1), transform 0.3s;
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.45);
-      min-width: 0; /* prevent overflow text issues */
-    }
+/* Container for all image cards */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  height: 72vh;
+  display: flex;
+  gap: 12px;
+  padding: 12px;
+  box-sizing: border-box;
+}
 
-    /* Active panel uses class "active" to expand */
-    .panel.active {
-      flex: 5;
-      transform: scale(1.02);
-      box-shadow: 0 14px 30px rgba(0,0,0,0.6);
-    }
+/* Each photo card */
+.panel {
+  flex: 1;
+  border-radius: 18px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  transition: flex 0.7s cubic-bezier(.2,.8,.2,1), transform 0.3s;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+}
 
-    /* Text inside the panel must have class "img-text" */
-    .img-text {
-      position: absolute;
-	  bottom:3px;
-      left: 5px;
-      margin: 0;
-      color: #fff;
-      font-size: 1rem; /* medium font size */
-      text-shadow: 0 3px 8px rgba(0,0,0,0.7);
-      opacity: 0;
-      transition: opacity 0.4s ease;
-    }
+/* Expanded card (active state) */
+.panel.active {
+  flex: 5;
+  transform: scale(1.02);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.6);
+}
 
-    /* Reveal text only for active panels */
-    .panel.active .img-text {
-      opacity: 1;
-      transform: translateY(0);
-    }
+/* Text inside each card */
+.img-text {
+  position: absolute;
+  bottom: 8px;
+  left: 16px;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-shadow: 0 3px 8px rgba(0,0,0,0.7);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
 
-    /* Small responsive tweak for mobile */
-    @media (max-width: 600px) {
-      .img-text { font-size: 1rem; bottom: 18px; }
-    }
+/* Show text only for active card */
+.panel.active .img-text {
+  opacity: 1;
+}
 
-    /* Provide visible focus outline for keyboard users */
-    .panel:focus {
-      outline: 3px solid rgba(255,255,255,0.18);
-      outline-offset: 4px;
-    }
+/* Mobile tweaks */
+@media (max-width: 600px) {
+  .img-text {
+    font-size: 1rem;
+    bottom: 12px;
+  }
+}
